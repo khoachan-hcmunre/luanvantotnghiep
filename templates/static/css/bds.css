@@ -1,0 +1,724 @@
+#MainContent {
+    clear: both
+}
+
+.site-center {
+    overflow: visible
+}
+
+.tabcontent-view {
+    clear: both;
+    width: 100%
+}
+
+.main-view {
+    margin-top: 20px;
+    clear: both;
+    width: 99%;
+    z-index: 1;
+    border-top: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 10px
+}
+
+.main-view-fullscreen {
+    z-index: 103;
+    margin: 0!important;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%!important
+}
+
+.map-view {
+    vertical-align: top
+}
+
+.map-view-fullscreen .tag-view {
+    display: none
+}
+
+.map-view-fullscreen #map {
+    height: 100%!important;
+    position: absolute!important;
+    top: 0;
+    left: 0;
+    z-index: 100
+}
+
+.map-view-fullscreen div.map-wrap {
+    position: static!important
+}
+
+.list-view-hidden {
+    width: 15px!important;
+    cursor: pointer
+}
+
+.list-view-hidden .page-view,
+.list-view-hidden .sort-view,
+.list-view-hidden .item-view,
+.list-view-hidden .projectTotalResult,
+.list-view-hidden .slimScrollDiv {
+    display: none!important
+}
+
+.list-view-hidden .icon-hide {
+    background-image: url(https://file4.batdongsan.com.vn/images/Product/Maps/left-arrow.png)!important;
+    top: 2px
+}
+
+.list-view-project .sort-view {
+    display: none!important
+}
+
+.list-view .projectTotalResult {
+    display: none;
+    font-family: Tahoma;
+    font-size: 12px;
+    font-style: normal;
+    color: #3a9f10
+}
+
+.list-view-project .projectTotalResult {
+    display: block
+}
+
+.list-view {
+    width: 300px;
+    background-color: #fff;
+    vertical-align: top;
+    border-right: 1px solid #ccc
+}
+
+.list-view table tr td {
+    vertical-align: top
+}
+
+.list-view .page-view {
+    background-color: #fff;
+    text-align: center;
+    width: 100%;
+    height: 30px
+}
+
+.list-view .page-view a {
+    font-weight: bold;
+    margin: 2px;
+    padding: 2px;
+    display: inline-block;
+    border-radius: 5px;
+    margin: 0
+}
+
+.list-view .page-view .current {
+    color: #319c00
+}
+
+.list-view-hidden .divfilterView {
+    display: none!important
+}
+
+.divfilterView .filterview-options {
+    background: url(../images/bg-filterview.png) no-repeat;
+    height: 32px;
+    width: 244px;
+    border-radius: 3px;
+    margin: 10px 25px
+}
+
+.divfilterView .filterview-options a {
+    float: left;
+    padding: 7px 11px;
+    color: #fff;
+    font-weight: 700
+}
+
+.divfilterView .filterview-options a:first-child {
+    border-right: 1px solid #B3D1FF
+}
+
+.divfilterView .filterview-options a:last-child {
+    border-left: 1px solid #B3D1FF
+}
+
+.divfilterView .filterview-options a.filter-active {
+    background: #cfe5f2;
+    color: #055699;
+    border-left: 1px solid #116cb8;
+    border-right: 1px solid #116cb8
+}
+
+.divfilterView .filterview-options a:first-child.filter-active {
+    border-radius: 3px 0 0 3px;
+    border-left: none;
+    white-space: nowrap
+}
+
+.divfilterView .filterview-options a:last-child.filter-active {
+    border-radius: 0 3px 3px 0;
+    border-right: 0;
+    padding-right: 12px;
+    width: 75px
+}
+
+.divfilterView .filterview-date {
+    margin: 0 0 0 25px
+}
+
+.divfilterView .filterview-date input[type="text"] {
+    padding: 5px;
+    width: 106px;
+    float: left;
+    margin-right: 5px
+}
+
+.divfilterView .filterview-date span.delete-date {
+    background: url(../images/delete-date.png) no-repeat 50% 50%;
+    height: 28px;
+    width: 19px;
+    display: none;
+    float: left;
+    cursor: pointer
+}
+
+.vip-view {
+    height: 50px;
+    padding: 15px 0;
+    text-align: center;
+    display: none
+}
+
+.vip-view label {
+    margin: 0
+}
+
+.icon-hide {
+    width: 15px;
+    cursor: pointer;
+    background-image: url(https://file4.batdongsan.com.vn/images/Product/Maps/right-arrow.png);
+    background-repeat: no-repeat;
+    height: 20px;
+    background-position: center;
+    top: 0;
+    right: 0;
+    position: absolute;
+    z-index: 100
+}
+
+.sort-view,
+.projectTotalResult {
+    height: 25px;
+    color: #055699;
+    font-weight: bold;
+    padding: 10px 0 10px 30px;
+    width: 230px;
+    float: left
+}
+
+.item-view {
+    width: 273px;
+    vertical-align: top;
+    list-style-type: none
+}
+
+.notify-info {
+    height: 480px;
+    text-align: center;
+    color: red;
+    font-weight: bold
+}
+
+.detail-item {
+    display: block;
+    float: left;
+    clear: both;
+    margin-left: 5px;
+    cursor: pointer;
+    width: 273px;
+    min-height: 110px
+}
+
+.detail-item-sep {
+    width: 273px;
+    border-bottom: 1px solid #ccc;
+    margin: 5px 0 5px 5px;
+    height: 1px;
+    float: left
+}
+
+.detail-item:hover,
+.detail-item-current {
+    background-color: #b1f2b1
+}
+
+.detail-item span {
+    clear: both;
+    font-weight: bold
+}
+
+.detail-item img {
+    float: left;
+    width: 90px;
+    height: 70px;
+    margin: 5px
+}
+
+.detail-item .detail-title {
+    color: #055699
+}
+
+.item-vip0 .detail-title,
+.infowindow-title-vip0 {
+    color: #e41b23!important
+}
+
+.item-vip1 .detail-title,
+.infowindow-title-vip1 {
+    color: #e41b23!important;
+    display: inline-block
+}
+
+.item-vip2 .detail-title,
+.infowindow-title-vip2 {
+    color: #f60!important
+}
+
+.item-vip3 .detail-title,
+.infowindow-title-vip3 {
+    color: #f60!important
+}
+
+.detail-item .detail-price {
+    color: #319c00
+}
+
+.hidden-dropbox {
+    display: inline-block;
+    position: relative;
+    z-index: 0
+}
+
+.hidden-dropbox-current {
+    z-index: 10
+}
+
+.hidden-dropbox label {
+    line-height: 25px;
+    z-index: 0
+}
+
+.hidden-dropbox .hidden-dropbox-text {
+    cursor: pointer;
+    width: 116px;
+    overflow: hidden;
+    white-space: nowrap;
+    display: block
+}
+
+.hidden-dropbox .hidden-dropbox-text:hover {
+    text-decoration: underline
+}
+
+.hidden-dropbox-options {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    background-color: #fff;
+    border: 1px solid #055699;
+    min-width: 150px!important;
+    min-height: 100px;
+    z-index: 9999;
+    padding: 10px
+}
+
+.hidden-dropbox-options-hover {
+    display: block
+}
+
+.hidden-dropbox-options table {
+    border-collapse: collapse;
+    width: 100%
+}
+
+.hidden-dropbox-options td {
+    vertical-align: top;
+    min-width: 150px!important
+}
+
+.hidden-dropbox-options span {
+    cursor: pointer;
+    color: #000;
+    display: block;
+    white-space: nowrap;
+    margin: 0 5px;
+    line-height: 20px;
+    font-weight: lighter
+}
+
+.hidden-dropbox-options span:hover,
+.hidden-dropbox-options span.current {
+    color: #f60;
+    font-weight: bold
+}
+
+.hidden-dropbox-options .hidden-dropbox-options-defaultvalue {
+    font-weight: bold;
+    color: #000
+}
+
+.combo {
+    display: inline-block;
+    margin-right: 10px
+}
+
+.maptype-view {
+    float: right
+}
+
+.maptype-view div {
+    text-align: center;
+    padding: 2px 17px;
+    margin: 0;
+    float: left;
+    font-weight: bold;
+    font-size: 12px;
+    font-family: Tahoma;
+    border-radius: 5px;
+    margin-right: 10px;
+    line-height: 22px
+}
+
+.maptype-view div.active {
+    background-color: #CFE5F2;
+    border: 1px solid #9AC8E3;
+    color: #000;
+    white-space: nowrap
+}
+
+.maptype-view .type-list {
+    background: url(../Images/xemtheodanhsach.png) no-repeat 5px 50%;
+    padding-left: 22px
+}
+
+.maptype-view .type-list a {
+    color: #000
+}
+
+.maptype-view .type-map {
+    background: url(../Images/xemtheobando-btn.png) no-repeat 5px 50%;
+    padding-left: 22px
+}
+
+.maptype-view a:hover {
+    text-decoration: underline!important
+}
+
+.util-radius {
+    width: 450px
+}
+
+.util-radius label {
+    margin: 0 10px
+}
+
+.util-result {
+    width: 450px
+}
+
+.util-result div {
+    width: 100%;
+    float: left
+}
+
+.util-result div span {
+    width: 220px;
+    display: inline-block
+}
+
+.util-result div span.util-0 {
+    float: left;
+    clear: both
+}
+
+.util-result div span.util-1 {
+    float: right
+}
+
+.ui-widget {
+    z-index: 102!important
+}
+
+#lblResultMessage {
+    float: left;
+    font-weight: bold;
+    color: #222;
+    padding: 0 10px
+}
+
+#lblResultMessage label {
+    float: left
+}
+
+#lblResultMessage div a {
+    color: #b30000;
+    font-size: 10px
+}
+
+#lblResultMessage img.arrow-back {
+    float: left;
+    margin-right: 7px;
+    cursor: pointer
+}
+
+#lblResultMessage img.arrow-next {
+    float: left;
+    margin-left: 7px;
+    cursor: pointer
+}
+
+.search-result-button {
+    color: green;
+    font-weight: bold;
+    float: left;
+    cursor: pointer;
+    padding-left: 18px;
+    display: none
+}
+
+.search-result-button-prev {
+    background: url(../images/search-result-button-prev.png) 2px 7px no-repeat;
+    margin-left: 10px
+}
+
+.search-result-button-next {
+    background: url(../images/search-result-button-next.png) 2px 7px no-repeat;
+    margin-right: 10px
+}
+
+.filter-options {
+    float: left;
+    margin: 5px 0 5px 10px
+}
+
+.filter-options label {
+    margin-right: 10px
+}
+
+.map-title {
+    margin: 15px 0;
+    clear: both;
+    padding-bottom: 15px
+}
+
+.map-title h1 {
+    color: #055699;
+    font-weight: bolder;
+    font-size: 16px;
+    font-family: Tahoma;
+    line-height: 25px;
+    float: left
+}
+
+.fancy-view {
+    display: none
+}
+
+.date input {
+    width: 65px;
+    height: 25px;
+    border: 1px solid #d8d8d8;
+    padding: 0 10px;
+    font-size: 12px;
+    font-family: Tahoma
+}
+
+.tag-view {
+    bottom: 0;
+    left: 0;
+    float: left;
+    height: 75px;
+    border-top: 1px solid #ccc;
+    width: 100%;
+    background-color: #fff;
+    overflow: hidden
+}
+
+.tag-view ul {
+    list-style: none;
+    margin: 5px 0
+}
+
+.tag-view ul li {
+    list-style: none;
+    float: left;
+    margin: 0 5px
+}
+
+.tag-view ul li a {
+    color: #055699;
+    font-family: Tahoma;
+    font-size: 12px;
+    font-weight: bold
+}
+
+.tabcontent-view .product-form,
+.tabcontent-view .project-form {
+    display: none
+}
+
+.tabcontent-view .active {
+    display: block
+}
+
+.map-form {
+    margin: auto;
+    margin-top: 20px;
+    width: 1000px
+}
+
+.map-form .tab {
+    height: 30px;
+    width: 100%
+}
+
+.map-form .tab span {
+    float: right;
+    background-image: url(https://file4.batdongsan.com.vn/images/Product/Maps/search-advance.png);
+    background-position: left;
+    background-repeat: no-repeat;
+    padding: 5px 0 5px 20px;
+    line-height: 20px;
+    font-family: Arial;
+    font-size: 12px;
+    color: #055699;
+    font-weight: bold;
+    cursor: pointer
+}
+
+.map-form .tab div {
+    padding: 5px 15px;
+    line-height: 20px;
+    font-size: 12px;
+    font-family: Arial;
+    float: left;
+    cursor: pointer;
+    background-color: #cfe5f2;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    margin-right: 4px
+}
+
+.map-form .tab div.active {
+    background-color: #055699;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    font-family: Arial;
+    font-size: 14px;
+    color: #fff
+}
+
+.map-form .body {
+    padding: 10px 7px 3px 7px;
+    background-color: #055699;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px
+}
+
+.map-form .body .form-row {
+    clear: both;
+    width: 100%;
+    height: 35px
+}
+
+.form-row .dropbox {
+    height: 25px
+}
+
+.map-form .body .form-row .btnSearch,
+.map-form .body .form-row .dropbox {
+    float: left;
+    cursor: pointer
+}
+
+.map-form .body input[type=text] {
+    border: 1px solid #C7C7C7;
+    float: left;
+    font-family: Arial;
+    font-size: 12px;
+    margin-right: 5px;
+    padding: 5px 0 5px 4px;
+    width: 205px
+}
+
+.map-form .body .btnSearch {
+    background-image: url(https://file4.batdongsan.com.vn/images/Product/Maps/btn-search.png);
+    background-position: 7px 8px;
+    background-repeat: no-repeat;
+    background-color: #3c9e10;
+    font-size: 14px;
+    color: #fff;
+    font-family: Arial;
+    font-weight: bold;
+    line-height: 17px;
+    padding: 7px 12px 7px 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: -3px
+}
+
+.map-form .body .dropbox {
+    line-height: 14px;
+    font-size: 12px;
+    font-family: Arial;
+    padding: 0 3px;
+    border: 1px solid #c7c7c7;
+    width: 200px;
+    margin-right: 5px;
+    background-color: #fff;
+    background-image: url(https://file4.batdongsan.com.vn/images/Product/Maps/icon-dropbox.png);
+    background-repeat: no-repeat;
+    background-position: 117px 11px
+}
+
+.map-form .body .dropbox label {
+    cursor: pointer
+}
+
+.map-form .box-filter {
+    height: 56px;
+    background-color: #cfe5f2;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    width: 100%
+}
+
+.map-form .box-filter .space {
+    height: 18px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: #fff;
+    width: 100%
+}
+
+.project-form .body {
+    background-color: #fff!important;
+    padding: 0
+}
+
+.product-form .body .advance-row {
+    display: none
+}
+
+.product-form .body .normal-row {
+    display: block;
+    margin-bottom: 13px
+}
+
+.product-form .advance-mode .advance-row {
+    display: block;
+    margin-top: 0
+}

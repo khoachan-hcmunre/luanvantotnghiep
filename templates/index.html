@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+
+<head>
+  <title>
+    TRA CỨU THÔNG TIN ĐỊA CHÍNH XÃ NHƠN ĐỨC
+  </title>
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="http://tnmttravinh.gov.vn:882/travinh_webgis_datdai/public/assets/images/SoTNMT.ico">
+</head>
+<!-- <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" integrity="sha512-07I2e+7D8p6he1SIM+1twR5TIrhUQn9+I6yjqD53JQjFiMf8EtC93ty0/5vJTZGF8aAocvHYNEDJajGdNx1IsQ=="
+            crossorigin="" /> -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+<!--Day la thu vien Jquery-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!--Day la thu vien Leaflet-->
+<!-- <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js" integrity="sha512-A7vV8IFfih/D732iSSKi20u/ooOfj/AGehOKq0f4vLT1Zr2Y+RX7C+w8A1gaSasGtRUZpF/NZgzSAu4/Gc41Lg=="
+            crossorigin=""></script> -->
+<link rel="stylesheet" href="static/css/bootstrap.min.css">
+<link rel="stylesheet" href="static/css/font-awesome.min.css">
+<link rel="stylesheet" href="static/css/owl.carousel.css">
+<link rel="stylesheet" href="static/css/owl.theme.css">
+<link rel="stylesheet" href="static/css/responsive.css">
+<link rel="stylesheet" href="static/css/magnific-popup.css">
+<link rel="stylesheet" href="static/css/fakeLoader.css">
+<link rel="stylesheet" href="static/css/style.css?v=2">
+<link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+<link rel="javascript" href="{{ url_for('static', filename='js/jquery-1.7.2.js') }}">
+<link rel="javascript" href="{{ url_for('static', filename='js/jquery.cookie.js') }}">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+  integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+  crossorigin="" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.79.0/dist/L.Control.Locate.min.css" />
+<link rel="stylesheet" type="text/css" href="mapa.css">
+<link rel="stylesheet" type="text/css" href="./static/Leaflet-MiniMap-master/dist/Control.MiniMap.min.css" />
+<link rel="stylesheet" href="./static/Leaflet.MeasureControl-master/leaflet.measurecontrol.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/0.3.2/leaflet.draw.css" />
+<link rel="stylesheet" href="./static/css/L.switchBasemap.css" />
+<link rel="stylesheet" href="https://cdn.rawgit.com/ardhi/Leaflet.MousePosition/master/src/L.Control.MousePosition.css">
+<link href="js/Minimap/Control.MiniMap.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/gokertanrisever/leaflet-ruler@master/src/leaflet-ruler.css"
+  integrity="sha384-P9DABSdtEY/XDbEInD3q+PlL+BjqPCXGcF8EkhtKSfSTr/dS5PBKa9+/PMkW2xsY" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="./static/css/leaflet.legend.css">
+<link rel="stylesheet" href="./static/Leaflet.StyledLayerControl-master/css/styledLayerControl.css">
+<!-- <link rel="stylesheet" href="https://unpkg.com/@geoman-io/leaflet-geoman-free@latest/dist/leaflet-geoman.css"/> -->
+<!-- <link rel="stylesheet" href="./static/css/unpkg.com_leaflet-draw@1.0.4_dist_leaflet.draw.css"/> -->
+<link rel="stylesheet" href="./static/css/Leaflet.BigImage.css"/>
+<link rel="stylesheet" href="./static/css/html.css"/>
+<link href="http://tnmttravinh.gov.vn:882/travinh_webgis_datdai/public/assets_map/css/Control.FullScreen.css" rel="stylesheet">
+<link href="http://tnmttravinh.gov.vn:882/travinh_webgis_datdai/public/assets_map/css/leaflet-measure.css" rel="stylesheet"/>
+
+<style>
+</style>
+<body>
+  <div id="wrapper">
+    <div id=header style="background-color:  rgb(3, 80, 20);height:110px;">
+      <marquee style=" position: absolute;color: #fff;font-family: 'Times New Roman', Times, serif; margin: center; right: 80px;
+       font-size: 22px;" behavior="alternate">HỆ THỐNG THÔNG TIN ĐỊA LÝ HỖ TRỢ TRA CỨU THÔNG TIN ĐỊA CHÍNH - HUYỆN NHÀ BÈ, THÀNH PHỐ HỒ CHÍ MINH</marquee>
+      <h3> GVHD: ThS. Trần Mỹ Hảo <br> & ThS.Trần Trường An</br> </h3>
+      <h4>Bộ Tài Nguyên và Môi Trường</h4>
+      <h5><b>Trường Đại Học Tài Nguyên và Môi Trường<br> Thành phố Hồ Chí Minh</b></h5>
+      <div id=tnmt style="float:left"> <img src="./static/image/logo.png" width="100" height="100"></div>
+    </div>
+    <!--topnav-->
+    <div class="topnav">
+      <a href="https://thuvienphapluat.vn/"><i class="fa fa-home"></i> Trang chủ</a>
+      <a href="https://thuvienphapluat.vn/"> Thư viện luật</a>
+      <a href="file:///D:/webgis/bin/webapps/geoserver/WEBGIS/templates/index.html"><i class="fa fa-globe"></i> Bản đồ</a>
+      <a href="#" style="float:right"><i class="fa fa-fw fa-user"></i> Đăng nhập </a>
+      <!--endtopnav-->
+      <div id="congcu">
+        <button class="openbtn" onclick="openNav()"><i class="fa fa-fw fa-search"></i> Tra cứu </button>
+        <script>
+          function openNav() {
+            document.getElementById("sidebar").style.width = "600px";
+            document.getElementById("main").style.marginLeft = "600px";
+            document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+          }
+          function closeNav() {
+            document.getElementById("sidebar").style.width = "0";
+            document.getElementById("main").style.marginLeft = "0";
+            document.body.style.backgroundColor = "white";
+          }
+        </script>
+      </div>
+    </div>
+  </div>
+
+  <!-- <endheader > -->
+  <div id="sidebar"  class="sidebar">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <div class="attQueryDiv" id="attQueryDiv">
+      <div class="headerDiv" id="headerDiv">
+        <form action="." method="POST" class="fs-search">
+        <!--<label for="">Tra Cứu Thông Tin Địa Chính</label>-->
+      </div><br>
+      <label for="">Nhập Mã Xã</label>
+      <input style="margin: 5px 10px 10px 46px;"type="text" name="maxahtml" id="maxahtml">
+      </select><br><br>
+
+      <label for="">Nhập Số Tờ </label>
+      <input style="margin: 5px 10px 10px 51px;" type="text" name="sotohtml" id="sotohtml">
+      </select><br><br>
+
+      <label for="">Nhập Số Thửa </label>
+      <input style="margin: 5px 10px 10px 34px"; type="text" name="sothuahtml" id="sothuahtml">
+
+      <label for=""> </label>
+      <input style="display: flex;margin: 20px 10px 10px 168px;" type='submit' />
+      </select><br><br>
+      <label for=""> Kết quả tra cứu </label> <b> <div {cautruyvan}></div> </b>
+      <p> <p> <p>
+          <table>
+              <thead>
+                  <th>Số tờ</th>
+                  <th>Số thửa</th>
+                  <th>Tên chủ sử dụng</th>
+                  <th>Địa chỉ</th>
+                  <th>Diện tích</th>
+                  <th>Loại đất</th>
+              </thead>
+              <tbody>
+                 
+                  {% for thua in danhsach %}
+                  <tr>
+                      <td> <a href="#" onclick="panTo({{thua.y}}, {{thua.x}})">
+                          {{thua.sohieutoba}}</a></td>
+                      <td></a>{{thua.sothututhu}}</td>     
+                      <td>{{thua.hoten}}</td> 
+                      <td>{{thua.diachichit}}</td> 
+                      <td>{{thua.dientich}}</td> 
+                      <td>{{thua.loaidat}}</td>
+                  </tr>
+                  {% endfor %}
+              </tbody>
+          </table>      
+
+      </form>
+    </div>
+  </div>
+  </div>
+  
+  <!-- <NAVIGATON> -->
+
+  <div id="main"
+    style="width: 100%; height: 600px;background-image: url(https://media.istockphoto.com/id/1251486554/photo/abstract-technology-wave-pattern-on-white-background.jpg?s=612x612&w=0&k=20&c=ToDiRLDZM74WlCDptn_eTrkMfjREK1EH71aOZ6tQ6bA=);">
+    <div id='map' style="width:100%; height: 600px;bottom:15px;"></div>
+  <!-- <endmaincontent > -->
+  <div style="background-color:rgb(110, 159, 104);padding: 40px;" id="footer">
+    <p style="font-size: medium;text-align: center;">&copy; Copyright 
+      <a href="#" style="color: #ffffff;">Ngọc Chân & Đoàn Khoa</a> &#124;
+      <a href="#" style="color: #ffffff;">08_ĐHQT</a> &#124;
+      <a href="#" style="color: #ffffff;">HCMUNRE</a> &#124;
+      <a href="#" style="color: #ffffff;">Thông tin liên hệ:</a>
+      <a href="mailto:0850040005@hcmunre.edu.vn" style="color: #ddd;">mailto:0850040005@hcmunre.edu.vn</a>.
+    </p>
+    <center>
+      <p id="demo">
+        <script>
+          document.getElementById("demo").innerHTML = Date();
+        </script>
+      </p>
+    </center>
+  </div>
+  <script src="./static/js/jquery.min.js "></script>
+  <script src="./static/js/bootstrap.min.js "></script>
+  <script src="./static/js/owl.carousel.min.js "></script>
+  <script src="./static/js/jquery.scrollToTop.min.js "></script>
+  <script src="./static/js/jquery.magnific-popup.min.js"></script>
+  <script src="./static/js/jquery.filterizr.min.js "></script>
+  <script src="./static/js/fakeLoader.js"></script>
+  <script src="./static/js/jquery.nav.js"></script>
+  <script src="./static/js/main.js"></script>
+  <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+    integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+    crossorigin=""></script>
+  <!-- <script src="static/js/leaflet.wms.js "></script> -->
+  <script src="static/js/L.TileLayer.BetterWMS.js"></script>
+  <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.79.0/dist/L.Control.Locate.min.js"
+    charset="utf-8"></script>
+  <script src="./static/Leaflet-MiniMap-master/dist/Control.MiniMap.min.js"></script>
+  <script src="mapa.js"></script>
+  <script src="./static/Leaflet.MeasureControl-master/leaflet.measurecontrol.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/0.3.2/leaflet.draw.js"></script>
+  <script src="./static/Leaflet.MeasureControl-master/leaflet.measurecontrol.min.js"></script>
+  <script src="./static/leaflet-kml-master/L.KML.js"></script>
+  <script src="./static/js/L.TileLayer.BetterWMS.js"></script>
+  <script src="./static/js/L.switchBasemap.js"></script>
+  <script src="js/Minimap/Control.MiniMap.js"></script>
+  <script type="text/javascript"
+    src="https://cdn.rawgit.com/ardhi/Leaflet.MousePosition/master/src/L.Control.MousePosition.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/gokertanrisever/leaflet-ruler@master/src/leaflet-ruler.js"
+    integrity="sha384-N2S8y7hRzXUPiepaSiUvBH1ZZ7Tc/ZfchhbPdvOE5v3aBBCIepq9l+dBJPFdo1ZJ"
+    crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+  <script src="./static/image/rad.png"></script>
+  <script src="https://example.com/example-framework.js" crossorigin="anonymous"></script>
+  <script src='https://unpkg.com/leaflet-imageoverlay-ogcapi@0.1.0/Leaflet.ImageOverlay.OGCAPI.js'></script>
+  <script src='./static/js/leaflet.legend.js'></script>
+  <script src="./static/js/Editable.js"></script>
+  <script src="./static/Leaflet.StyledLayerControl-master/src/styledLayerControl.js"></script>
+  <script src="https://unpkg.com/@geoman-io/leaflet-geoman-free@latest/dist/leaflet-geoman.min.js"></script>
+  <script src="node_modules/leaflet-toolbar/dist/leaflet.toolbar.js"></script>
+  <!-- <script src="./static/js/unpkg.com_leaflet-draw@1.0.4_dist_leaflet.draw.js"></script> -->
+  <script src="./static/js/Leaflet.BigImage.js"></script>
+  <script src="./static/js/leaflet-measure.js"></script>
+  <script src="http://tnmttravinh.gov.vn:882/travinh_webgis_datdai/public/assets_map/js/leaflet_plugin/Control.FullScreen.js"></script>
+
+  <script>
+    var mymap = L.map('map', {zoomControl: false},{ editable: true }).setView([10.672222, 106.701389], 14);
+    new L.basemapsSwitcher([
+      {
+        layer: L.tileLayer('http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
+          maxZoom: 20,
+          subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+        }).addTo(mymap), //DEFAULT MAP
+        icon: './static/image/open.png',
+        name: 'OpenStreet'
+      },
+      {
+        //google sat
+        layer: L.tileLayer('http://{s}.google.com/vt?lyrs=s&x={x}&y={y}&z={z}', {
+          maxZoom: 20,
+          subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+        }),
+        icon: './static/image/2.png',
+        name: 'Google sat'
+      },
+      {
+        //terrain
+        layer: L.tileLayer('http://{s}.google.com/vt?lyrs=p&x={x}&y={y}&z={z}', {
+          maxZoom: 20,
+          subdomains: ['mt0', 'mt1', 'mt2', 'mt3']
+        }),
+        icon: './static/image/3.png',
+        name: 'Google Terrain'
+      },
+    ], { position: 'bottomright' }).addTo(mymap);
+
+    //ranhthua
+   var url = 'http://localhost:8080/geoserver/nhonduc/wms?'
+    var ranh = L.tileLayer.betterWms(url, {
+      layers: 'nhonduc:ranh',
+      format: 'image/png',
+      transparent: true
+    });
+    mymap.addLayer(ranh);
+
+    //nhon duc
+    var indexlayer = L.tileLayer.betterWms(url, {
+      layers: 'nhonduc:DC_nhonduc',
+      format: 'image/png',
+      transparent: true
+    });
+    mymap.addLayer(indexlayer);
+
+    //quyhoach
+    var quyhoach = L.tileLayer.betterWms(url, {
+    layers: 'nhonduc:qhchinh',
+    format: 'image/png',
+    transparent: true
+   });
+   mymap.addLayer(quyhoach);
+
+  // //matduongbo
+  //   var matduongbo = L.tileLayer.betterWms(url, {
+  //   layers: 'nhonduc:matduongbo',
+  //   format: 'image/png',
+  //   transparent: true
+  //  });
+  //  mymap.addLayer(matduongbo);
+
+  // //timduong
+  //   var timduong = L.tileLayer.betterWms(url, {
+  //   layers: 'nhonduc:timduong',
+  //   format: 'image/png',
+  //   transparent: true
+  //  });
+  //  mymap.addLayer(timduong);
+  
+  // //rangioiduong
+  // var rangioiduong = L.tileLayer.betterWms(url, {
+  //   layers: 'nhonduc:ranhgioiduong',
+  //   format: 'image/png',
+  //   transparent: true
+  //  });
+  //  mymap.addLayer(rangioiduong);   
+
+  //    //Vungthuyhe
+  // var vungthuyhe = L.tileLayer.betterWms(url, {
+  //   layers: 'nhonduc:vungthuyhe',
+  //   format: 'image/png',
+  //   transparent: true
+  //  });
+  //  mymap.addLayer(vungthuyhe);   
+
+  //   //duongthuyhe
+  // var duongthuyhe = L.tileLayer.betterWms(url, {
+  //   layers: 'nhonduc:duongthuyhe',
+  //   format: 'image/png',
+  //   transparent: true
+  //  });
+  //  mymap.addLayer(duongthuyhe);   
+
+    //thuadatt
+  var thuadatt = L.tileLayer.betterWms(url, {
+    layers: 'nhonduc:thuadatt',
+    format: 'image/png',
+    transparent: true
+   });
+   mymap.addLayer(thuadatt);   
+
+//taisanganlienvoidat
+var taisanganlienvoidat = L.tileLayer.betterWms(url, {
+    layers: 'nhonduc:taisanganlienvoidat',
+    format: 'image/png',
+    transparent: true
+   });
+   mymap.addLayer(taisanganlienvoidat);   
+
+//adding marker & popup
+    const marker = L.marker([10.672222, 106.701389]).addTo(mymap)
+    marker.bindPopup("<div id='popup'>"
+      + "<span id='Text'>Xã Nhơn Đức, huyện Nhà Bè, Thành phố Hồ Chí Minh</span>"
+      + "<br>" + "<img id='nhabe'src='static/image/nhabe.jpg'alt='nhabe'> </div>").openPopup();
+ //minimap
+    googleHybrid = L.tileLayer('http://{s}.google.com/vt?lyrs=p&x={x}&y={y}&z={z}', {
+      maxZoom: 20,
+      subdomains: ['mt0', 'mt1', 'mt2', 'mt3']
+    });
+var minimap = new L.control.minimap(googleHybrid,
+      {
+        toggleDisplay: true,
+        minized: false,
+        position: "bottomleft"
+      }).addTo(mymap);
+
+
+//ruler
+    var options = {
+      position: 'topright',
+      lengthUnit: {
+        factor: 0.539956803,    //  from km to nm
+        display: 'Nautical Miles',
+        decimal: 2
+      }
+    };
+//overlay
+    var image = L.imageOverlay(
+      './static/image/rad.png',
+      [[41.7188, -72.7199], [41.8098, -72.6418]], {
+      opacity: .6
+    }).addTo(mymap);
+//control
+  var baseMaps = [
+					{ 
+						groupName : "Bản đồ",
+						expanded : true,
+						layers    : {
+              "Địa chính": indexlayer,
+              "Quy hoạch": quyhoach,
+              "Kế hoạch" :image
+						}
+					}					
+	];	
+          var overlays = [
+					 {
+						groupName : "Thửa đất",
+						expanded  : false,
+						layers    : { 
+              "Thửa đất":thuadatt,
+              "Ranh thửa": ranh
+						}	
+					 },
+					//  {
+					// 	groupName : "Giao thông",
+					// 	expanded  : false,
+					// 	layers    : { 
+          //     "Mặt đường":matduongbo,
+          //     "Ranh giới đường": rangioiduong,
+          //     "Tim đường": timduong
+					// 	}	
+					//  },
+					//  {
+					// 	groupName : "Thủy hệ",
+					// 	expanded  : false,
+					// 	layers    : { 
+          //     "Vùng thủy hệ":vungthuyhe,
+          //     "Đường thủy hệ": duongthuyhe
+					// 	}	
+          // },
+					 {
+						groupName : "Tài sản",
+						expanded  : false,
+						layers    : { 
+              "Tài sản": taisanganlienvoidat
+						}	
+          }
+	];
+   
+  var control = L.Control.styledLayerControl(baseMaps, overlays, options);
+	mymap.addControl(control);
+//geocoder
+  L.Control.geocoder({
+    geocoder: L.Control.Geocoder.nominatim(),
+    showUniqueResult: true,
+    showResultIcons: false,
+    collapsed: false,
+    expand: 'touch',
+    position: 'topleft',
+    placeholder: 'Tìm kiếm địa điểm ...',
+    errorMessage: 'KhĂ´ng tĂ¬m tháº¥y Ä‘á»‹a Ä‘iá»ƒm',
+    iconLabel: 'TĂ¬m kiáº¿m Ä‘á»‹a Ä‘iá»ƒm má»›i',
+    query: '',
+    queryMinLength: 1,
+    suggestMinLength: 3,
+    suggestTimeout: 250,
+    defaultMarkGeocode: true
+}).addTo(mymap);
+
+//Zoomhome
+  var zoomHome = L.Control.zoomHome();
+  zoomHome.addTo(mymap);
+//Loacate
+  L.control.locate().addTo(mymap);
+  L.Control.measureControl().addTo(mymap);
+//MesurePolyfon    
+  /*----- Measure Tool -----*/
+var measureControl = new L.Control.Measure({
+    position: 'topleft',
+    primaryLengthUnit: 'meters',
+    secondaryLengthUnit: 'kilometers',
+    primaryAreaUnit: 'hectares',
+    secondaryAreaUnit: 'sqmeters',
+    popupOptions: {
+        className: 'leaflet-measure-resultpopup',
+        autoPanPadding: [10, 10]
+    },
+    activeColor: '#ff0000',
+    completedColor: '#f27000'
+})
+measureControl.addTo(mymap);
+//Fullscreen
+    L.control.fullscreen({
+    position: 'topleft',
+    title: 'Phóng to bản đồ',
+    titleCancel: 'Thu nhỏ bản đồ',
+}).addTo(mymap);
+//draw
+// var measureControl = new L.Control.Measure({
+//     primaryLengthUnit: 'kilometer',
+//     secondaryLengthUnit: 'meter',
+//     primaryAreaUnit: 'sqmeters', 
+//     secondaryAreaUnit: undefined 
+// });
+// measureControl.addTo(mymap);
+
+L.control.bigImage({position: 'topleft'}).addTo(mymap);
+//legend
+const legend = L.control.Legend({
+            position: "topright",
+            collapsed: true,
+            symbolWidth: 24,
+            opacity: 1,
+            column: 2,
+            legends: [{
+                label: ".   Đất ở tại đô thị",
+                type: "rectangle",
+                color: "rgb(0,0,0)",
+                fillColor: "rgb(255,160,255)",
+                weight: 1
+            }, {
+                label: ".   Đất ở tại nông thôn",
+                type: "rectangle",
+                color: "rgb(0,0,0)",
+                fillColor: "rgb(255,208,255)",
+                weight: 1
+    }, {
+                label: ".   Đất chuyên trồng lúa nước",
+                type: "rectangle",
+                color: "rgb(0,0,0)",
+                fillColor: "rgb(255,252,140)",
+                weight: 1
+    }, {
+                label: ".   Đất bằng trồng cây hàng năm khác",
+                type: "rectangle",
+                color: "rgb(0,0,0)",
+                fillColor: "rgb(255,240,180)",
+                weight: 1
+    },{
+                label: ".   Đất trồng cây lâu năm",
+                type: "rectangle",
+                color: "rgb(0,0,0)",
+                fillColor: "rgb(255,210,160)",
+                weight: 1
+    }, {
+                label: ".   Thủy hệ",
+                type: "rectangle",
+                fillColor: "rgb(217,255,255)",
+                weight: 1
+    }, {
+                label: ".   Đất giao thông",
+                type: "rectangle",
+                color: "rgb(0,0,0)",
+                fillColor: "rgb(255,170,50)",
+                weight: 1
+    }, {
+                label: ".   Đất rừng sản xuất",
+                type: "rectangle",
+                color: "rgb(0,0,0)",
+                fillColor: "rgb(180,255,180)",
+                weight: 1
+    }, {
+                label: ".   Đất nuôi trồng thủy sản",
+                type: "rectangle",
+                color: "rgb(0,0,0)",
+                fillColor: "rgb(170,255,255)",
+                weight: 1
+    }, {
+                label: ".   Đất thương mại, dịch vụ",
+                type: "rectangle",
+                color: "rgb(0,0,0)",
+                fillColor: "rgb(250,170,160)",
+                weight: 1
+    }, {
+                label: ".   Đất có di tích lịch sử - văn hóa",
+                type: "rectangle",
+                color: "rgb(0,0,0",
+                fillColor: "rgb(250,170,160)",
+                weight: 1
+    }, {
+                label: ".   Đất xây dựng trụ sở của tổ chức sự nghiệp",
+                type: "rectangle",
+                color: "rgb(0,0,0)",
+                fillColor: "rgb(250,170,160)",
+                weight: 1
+    }, {
+                label: ".   Đất cơ sở tôn giáo",
+                type: "rectangle",
+                color: "rgb(0,0,0)",
+                fillColor: "rgb(250,170,160)",
+                weight: 1
+    }, {
+                label: ".   Đất xây dựng trụ sở cơ quan",
+                type: "rectangle",
+                color: "rgb(0,0,0)",
+                fillColor: "rgb(255,170,160)",
+                weight: 1
+    }, {
+                label: ".   Đất làm nghĩa trang, nghĩa địa",
+                type: "rectangle",
+                color: "rgb(0,0,0)",
+                fillColor: "rgb(210,210,210)",
+                weight: 1
+    }]
+  }) .addTo(mymap);
+
+  </script>
+
+</body>
+
+</html>

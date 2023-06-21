@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+
+<head>
+  <title>
+    TRA CỨU THÔNG TIN ĐỊA CHÍNH XÃ NHƠN ĐỨC
+  </title>
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="http://tnmttravinh.gov.vn:882/travinh_webgis_datdai/public/assets/images/SoTNMT.ico">
+</head>
+<style>
+  .tnmt {
+    position: absolute;
+    left: 0px;
+    padding: 10px;
+  }
+
+  .head {
+    padding: 50px;
+    text-align: center;
+  }
+
+  body {
+    background-repeat: no-repeat;
+    background-position: right top;
+    background-attachment: fixed;
+  }
+
+  h4 {
+    color: red;
+    position: absolute;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 15px;
+    margin: center;
+    left: 72px;
+    padding: 40px;
+  }
+
+  h5 {
+    color: rgb(242, 255, 64);
+    position: absolute;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 15px;
+    margin: center;
+    left: 50px;
+    padding: 62px;
+  }
+
+  h3 {
+    color: rgb(242, 255, 64);
+    position: absolute;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 15px;
+    padding: 40px;
+    margin: center;
+    right: 300px;
+  }
+</style>
+<body>
+  <div id="wrapper">
+    <div id=header style="background-color:  rgb(3, 80, 20);height:120px;">
+      <marquee style=" position: absolute;color: #fff;font-family: 'Times New Roman', Times, serif; margin: center; right: 80px;
+       font-size: 22px;" behavior="alternate">HỆ THỐNG THÔNG TIN ĐỊA LÝ HỖ TRỢ TRA CỨU THÔNG TIN ĐỊA CHÍNH - HUYỆN NHÀ BÈ, THÀNH PHỐ HỒ CHÍ MINH</marquee>
+      <h3> GVHD: ThS. Trần Mỹ Hảo <br> & ThS.Trần Trường An</br> </h3>
+      <h4>Bộ Tài Nguyên và Môi Trường</h4>
+      <h5><b>Trường Đại Học Tài Nguyên và Môi Trường<br> Thành phố Hồ Chí Minh</b></h5>
+      <div id=tnmt style="float:left"> <img src="./static/image/logo.png" width="100" height="100"></div>
+    </div>
+<!-- singin-->
+<div id=login style="background-color: rgb(196, 248, 161);font-family: 'Times New Roman', Times, serif;display: flex;padding-top: 5%;height:500px;">
+<form style="margin: 5px 10px 10px 500px;font-size: 20px;" action="/loginkhac" method="POST">
+  Tên đăng nhập:<br>
+  <input style="margin: 5px 10px 10px 100px;height: 30px;width: 200px;" type="text"name="tendangnhap" value="" >
+  <br>
+  Mật khẩu:<br>
+  <input style="margin: 5px 10px 10px 100px;height: 30px;width: 200px;" type="text" name="matkhau" value="" >
+  <br><br>
+  <input style="margin: 5px 10px 10px 100px;height: 30px;width: 200px;" type="submit" value="Gửi">
+</form> 
+</div>
+<div style="background-color:rgb(110, 159, 104);padding: 40px;" id="footer">
+  <p style="font-size: medium;text-align: center;font-size: larger;">&copy; Copyright 
+    <a href="#" style="color: #ffffff;">Ngọc Chân & Đoàn Khoa</a> &#124;
+    <a href="#" style="color: #ffffff;">08_ĐHQT</a> &#124;
+    <a href="#" style="color: #ffffff;">HCMUNRE</a> &#124;
+    <a href="#" style="color: #ffffff;">Thông tin liên hệ:</a>
+    <a href="mailto:0850040005@hcmunre.edu.vn" style="color: #ddd;">mailto:0850040005@hcmunre.edu.vn</a>.
+  </p>
+  <center>
+    <p id="demo">
+      <script>
+        document.getElementById("demo").innerHTML = Date();
+      </script>
+    </p>
+  </center>
+</div>
+<!-- end singin -->
